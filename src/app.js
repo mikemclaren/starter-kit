@@ -10,7 +10,7 @@ var program = require('commander'),
 
 clone = Promise.promisify(clone);
 
-function useCommand(kit) {
+function useCommand(kit, packages) {
 	console.log('Fetching kit [%s]...'.green, kit);
 	if(kit == null) {
 		console.log('Kit not found.'.red);
@@ -21,7 +21,21 @@ function useCommand(kit) {
 		return;
 	}
 
-	var repo = kits[kit];
+	var repo = kits[kit],
+	additionalPackagePromises = [],
+
+	packageForEach = function packageForeach(packageName) {
+		var promise = new Promise(function promiseResolution(resolve) {
+			console.log('Installing %s'.blue, packageName);
+			var newPackage = spawn('bower', [ 'install', packageName, '--save' ]);
+
+			newPackage.stdout.on('end', function newPackageEnd() {
+				resolve();
+			});
+		});
+
+		additionalPackagePromises.push(promise);
+	};
 
 	// Clones the repo down.
 	clone(repo, process.cwd(), { shallow: true }).then(function success() {
@@ -36,16 +50,27 @@ function useCommand(kit) {
 			console.log(data.toString('utf-8', 0, data.length).gray);
 		});
 
+		// Additional packages.
+
 		// When it's all done, let us tell the user.
 		bootstrap.stdout.on('end', function dataFinished() {
-			console.log('This project has been thoroughly startered. Enjoy!'.green);
+			console.log('Bootstrapping completed!'.green);
+			if(packages.length !== 0) {
+				console.log('Beginning to add additional packages...'.green);
+				packages.forEach(packageForEach);
+			}
+
+			Promise.all(additionalPackagePromises).then(function completeResolution() {
+				spawn('git', [ 'init' ]);
+				console.log('This project has been thoroughly startered. Enjoy!'.green);
+			});
 		});
 	});
 }
 
 program
 	.version('0.0.1')
-	.command('use <repo> [packages...]')
+	.command('use <kit> [packages...]')
 	.action(useCommand);
 
 program.parse(process.argv);
