@@ -6,6 +6,12 @@
   "scripts": {
     "test": "make test"
   },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sq1agency/starter-kit.git"
+  },
+
   "author": "Mike Mclaren <mike.mclaren@sq1.com>",
   "license": "MIT",
   "bin": {
