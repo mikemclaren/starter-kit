@@ -21,12 +21,17 @@ what development process is needed.
 
 ## Starter Kits
 - [frontend-starter](https://github.com/sq1agency/frontend-starter.git)
+- [react-starter](https://github.com/sq1agency/react-starter.git)
 
 ## Additional Libraries
-You can install any library available on [Bower](http://bower.io) through the
-`use` command as well! Simple add any library you desire after the starter-kit
-declaration.
+You can install any library available on [Bower](http://bower.io) or [NPM](https://www.npmjs.com) through the
+`use` command as well! Simply add `--bower` and/or `--npm` as an option on your command.
+
+__Examples__:
+```
+starterkit use frontend-starter --bower jquery,bourbon,neat
+```
 
 ```
-starterkit use frontend-starter jquery bourbon neat
+starterkit use react-starter --bower bourbon --npm jquery,radium
 ```
