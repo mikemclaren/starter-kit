@@ -10,7 +10,7 @@ var program = require('commander'),
 
 clone = Promise.promisify(clone);
 
-function useCommand(kit, packages) {
+function useCommand(kit, options) {
 	console.log('Fetching kit [%s]...'.green, kit);
 	if(kit == null) {
 		console.log('Kit not found.'.red);
@@ -23,11 +23,13 @@ function useCommand(kit, packages) {
 
 	var repo = kits[kit],
 	additionalPackagePromises = [],
+	bowerPackages = [],
+	npmPackages = [],
 
-	packageForEach = function packageForeach(packageName) {
+	packageForEach = function packageForeach(packageName, type) {
 		var promise = new Promise(function promiseResolution(resolve) {
 			console.log('Installing %s'.blue, packageName);
-			var newPackage = spawn('bower', [ 'install', packageName, '--save' ]);
+			var newPackage = spawn(type, [ 'install', packageName, '--save' ]);
 
 			newPackage.stdout.on('end', function newPackageEnd() {
 				resolve();
@@ -35,7 +37,24 @@ function useCommand(kit, packages) {
 		});
 
 		additionalPackagePromises.push(promise);
+	},
+
+	npmPackageForEach = function npmPackageForEach(packageName) {
+		return packageForEach(packageName, 'npm');
+	},
+
+	bowerPackageForEach = function bowerPackageForEach(packageName) {
+		return packageForEach(packageName, 'bower');
 	};
+
+	// Break out the packages.
+	if(options.bower != null && options.bower !== 'undefined') {
+		bowerPackages = options.bower.split(',');
+	}
+
+	if(options.npm != null && options.npm !== 'undefined') {
+		npmPackages = options.npm.split(',');
+	}
 
 	// Clones the repo down.
 	clone(repo, process.cwd(), { shallow: true }).then(function success() {
@@ -55,9 +74,14 @@ function useCommand(kit, packages) {
 		// When it's all done, let us tell the user.
 		bootstrap.stdout.on('end', function dataFinished() {
 			console.log('Bootstrapping completed!'.green);
-			if(packages.length !== 0) {
-				console.log('Beginning to add additional packages...'.green);
-				packages.forEach(packageForEach);
+			if(npmPackages.length !== 0) {
+				console.log('Beginning to add additional npm packages...'.green);
+				npmPackages.forEach(npmPackageForEach);
+			}
+
+			if(bowerPackages.length !== 0) {
+				console.log('Beginning to add additional bower packages...'.green);
+				bowerPackages.forEach(bowerPackageForEach);
 			}
 
 			Promise.all(additionalPackagePromises).then(function completeResolution() {
@@ -70,7 +94,9 @@ function useCommand(kit, packages) {
 
 program
 	.version('0.0.1')
-	.command('use <kit> [packages...]')
+	.command('use [kit]')
+	.option('-b, --bower <bower_packages>', 'Packages to install using Bower')
+	.option('-n, --npm <npm_packages>', 'Packages to install using NPM')
 	.action(useCommand);
 
 program.parse(process.argv);
