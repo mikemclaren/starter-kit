@@ -95,8 +95,8 @@ function useCommand(kit, options) {
 program
 	.version('0.0.1')
 	.command('use [kit]')
-	.option('-b, --bower', 'Packages to install using Bower')
-	.option('-n, --npm', 'Packages to install using NPM')
+	.option('-b, --bower <bower_packages>', 'Packages to install using Bower')
+	.option('-n, --npm <npm_packages>', 'Packages to install using NPM')
 	.action(useCommand);
 
 program.parse(process.argv);
