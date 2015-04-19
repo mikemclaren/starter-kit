@@ -22,6 +22,7 @@ what development process is needed.
 ## Starter Kits
 - [frontend-starter](https://github.com/sq1agency/frontend-starter.git)
 - [react-starter](https://github.com/sq1agency/react-starter.git)
+- [react-express-starter](https://github.com/sq1agency/react-express-starter.git)
 
 ## Additional Libraries
 You can install any library available on [Bower](http://bower.io) or [NPM](https://www.npmjs.com) through the
