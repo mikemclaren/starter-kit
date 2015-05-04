@@ -26,8 +26,10 @@ what development process is needed.
 - [sailsjs-starter](https://github.com/sq1agency/sailsjs-starter.git)
 
 ## Additional Libraries
-You can install any library available on [Bower](http://bower.io) or [NPM](https://www.npmjs.com) through the
-`use` command as well! Simply add `--bower` and/or `--npm` as an option on your command.
+You can install any library available on [Bower](http://bower.io) or
+[NPM](https://www.npmjs.com) through the
+`use` command as well! Simply add `--bower` and/or `--npm` as an option on
+your command.
 
 __Examples__:
 ```
@@ -37,3 +39,16 @@ starterkit use frontend-starter --bower jquery,bourbon,neat
 ```
 starterkit use react-starter --bower bourbon --npm jquery,radium
 ```
+
+## Building a Starter Kit
+Want to build a starter kit? __Awesome!__ It's really rather simple. Just follow
+these principles, build your starter kit, and then submit a pull-request with a
+link to your wonderful starter kit.
+
+### Starter Kit Principles
+1. __Only the bare necessities.__ People shouldn't feel the need to _delete_
+anything in a starter kit.
+2. __./bin/bootstrap is the only way to setup.__ The starterkit cli calls
+`./bin/bootstrap` when installing starter kits, so chances are the setup will
+just fail. The idea is that a user should not have to run a single line of code
+to get there project _ready_ to go after using the starter kit.
