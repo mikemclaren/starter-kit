@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A quick command-line utility for NodeJS that helps quickly spin up new projects.",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,21 @@
   "bin": {
     "starterkit": "./src/starterkit"
   },
+
+  "keywords": [
+    "starter",
+    "kit",
+    "starterkit",
+    "easy",
+    "express",
+    "sailsjs",
+    "bower",
+    "frontend",
+    "backend",
+    "fullstack",
+    "starter-kit"
+  ],
+
   "dependencies": {
     "bluebird": "^2.9.24",
     "colors": "^1.0.3",
