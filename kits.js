@@ -3,5 +3,6 @@ module.exports = {
 	'react-starter': 'git@github.com:sq1agency/react-starter.git',
 	'react-express-starter': 'git@github.com:sq1agency/react-express-starter.git',
 	'sailsjs-starter': 'git@github.com:sq1agency/sailsjs-starter.git',
+	'email-starter': 'git@github.com:sq1agency/email-starter.git',
 	'express-starter': 'git@github.com:sq1agency/express-starter.git'
 };

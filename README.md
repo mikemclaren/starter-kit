@@ -5,7 +5,7 @@ but require flexibility from project to project.
 
 ## Install
 ```
-npm install starterkit -g
+npm install starter-kit -g
 ```
 
 ## Basic Usage
@@ -25,6 +25,7 @@ what development process is needed.
 - [react-express-starter](https://github.com/sq1agency/react-express-starter.git)
 - [sailsjs-starter](https://github.com/sq1agency/sailsjs-starter.git)
 - [express-starter](https://github.com/sq1agency/express-starter.git)
+- [email-starter](https://github.com:sq1agency/email-starter.git)
 
 ## Additional Libraries
 You can install any library available on [Bower](http://bower.io) or
