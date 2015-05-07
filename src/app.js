@@ -1,14 +1,11 @@
 'use strict';
 
 var program = require('commander'),
-		clone = require('git-clone'),
 		Promise = require('bluebird'),
 		remove = require('remove'),
 		colors = require('colors'),
 		spawn = require('child_process').spawn,
 		kits = require('../kits');
-
-clone = Promise.promisify(clone);
 
 function useCommand(kit, options) {
 	console.log('Fetching kit [%s]...'.green, kit);
@@ -25,6 +22,7 @@ function useCommand(kit, options) {
 	additionalPackagePromises = [],
 	bowerPackages = [],
 	npmPackages = [],
+	clone = null,
 
 	packageForEach = function packageForeach(packageName, type) {
 		var promise = new Promise(function promiseResolution(resolve) {
@@ -47,6 +45,8 @@ function useCommand(kit, options) {
 		return packageForEach(packageName, 'bower');
 	};
 
+	clone = spawn('git', [ 'clone', repo, process.cwd() ]);
+
 	// Break out the packages.
 	if(options.bower != null && options.bower !== 'undefined') {
 		bowerPackages = options.bower.split(',');
@@ -57,7 +57,7 @@ function useCommand(kit, options) {
 	}
 
 	// Clones the repo down.
-	clone(repo, process.cwd(), { shallow: true }).then(function success() {
+	clone.stdout.on('end', function success() {
 		console.log('Kit cloned! Removing .git folder...'.green);
 		// Removes the existing .git folder, which should give us a clean repo.
 		remove.removeSync(process.cwd() + '/.git');
@@ -70,7 +70,6 @@ function useCommand(kit, options) {
 		});
 
 		// Additional packages.
-
 		// When it's all done, let us tell the user.
 		bootstrap.stdout.on('end', function dataFinished() {
 			console.log('Bootstrapping completed!'.green);

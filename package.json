@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A quick command-line utility for NodeJS that helps quickly spin up new projects.",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,6 @@
     "bluebird": "^2.9.24",
     "colors": "^1.0.3",
     "commander": "^2.7.1",
-    "git-clone": "^0.1.0",
     "remove": "^0.1.5"
   }
 }
