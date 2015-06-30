@@ -26,6 +26,7 @@ what development process is needed.
 - [sailsjs-starter](https://github.com/sq1agency/sailsjs-starter.git)
 - [express-jwt-starter](https://github.com/sq1agency/express-jwt-starter.git)
 - [email-starter](https://github.com/sq1agency/email-starter.git)
+- [express-starter](https://github.com/sq1agency/express-starter)
 
 ## Additional Libraries
 You can install any library available on [Bower](http://bower.io) or
