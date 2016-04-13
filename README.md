@@ -20,13 +20,13 @@ the requirements of that Starterkit, and a `./bin/dev-start` file that begins
 what development process is needed.
 
 ## Starter Kits
-- [frontend-starter](https://github.com/sq1agency/frontend-starter.git)
-- [react-starter](https://github.com/sq1agency/react-starter.git)
-- [react-express-starter](https://github.com/sq1agency/react-express-starter.git)
+- [frontend-starter](https://github.com/mikemclaren/frontend-starter.git)
+- [react-starter](https://github.com/mikemclaren/react-starter.git)
+- [react-express-starter](https://github.com/mikemclaren/react-express-starter.git)
 - [sailsjs-starter](https://github.com/sq1agency/sailsjs-starter.git)
-- [express-jwt-starter](https://github.com/sq1agency/express-jwt-starter.git)
+- [express-jwt-starter](https://github.com/mikemclaren/express-jwt-starter.git)
 - [email-starter](https://github.com/sq1agency/email-starter.git)
-- [express-starter](https://github.com/sq1agency/express-starter)
+- [express-starter](https://github.com/mikemclaren/express-starter)
 
 ## Additional Libraries
 You can install any library available on [Bower](http://bower.io) or

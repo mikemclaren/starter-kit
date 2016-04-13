@@ -20,7 +20,6 @@
 		"no-catch-shadow": 2,
 		"no-undefined": 2,
 		"indent": [2, "tab"],
-		"quotes": [2, "single"],
 		"consistent-this": [1, "_this"],
 		"func-names": 1,
 		"no-inline-comments": 2,

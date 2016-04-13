@@ -1,11 +1,10 @@
 'use strict';
 
-var program = require('commander'),
-		Promise = require('bluebird'),
-		remove = require('remove'),
-		colors = require('colors'),
-		spawn = require('child_process').spawn,
-		kits = require('../kits');
+const program = require('commander');
+const remove = require('remove');
+const colors = require('colors');
+const spawn = require('child_process').spawn;
+const kits = require('../kits');
 
 function useCommand(kit, options) {
 	console.log('Fetching kit [%s]...'.green, kit);
@@ -18,13 +17,13 @@ function useCommand(kit, options) {
 		return;
 	}
 
-	var repo = kits[kit],
-	additionalPackagePromises = [],
-	bowerPackages = [],
-	npmPackages = [],
-	clone = null,
+	const repo = kits[kit];
+	const additionalPackagePromises = [];
+	const bowerPackages = [];
+	const npmPackages = [];
+	let clone = null;
 
-	packageForEach = function packageForeach(packageName, type) {
+	const packageForEach = function packageForeach(packageName, type) {
 		var promise = new Promise(function promiseResolution(resolve) {
 			console.log('Installing %s'.blue, packageName);
 			var newPackage = spawn(type, [ 'install', packageName, '--save' ]);
@@ -35,13 +34,13 @@ function useCommand(kit, options) {
 		});
 
 		additionalPackagePromises.push(promise);
-	},
+	};
 
-	npmPackageForEach = function npmPackageForEach(packageName) {
+	const npmPackageForEach = function npmPackageForEach(packageName) {
 		return packageForEach(packageName, 'npm');
-	},
+	};
 
-	bowerPackageForEach = function bowerPackageForEach(packageName) {
+	const bowerPackageForEach = function bowerPackageForEach(packageName) {
 		return packageForEach(packageName, 'bower');
 	};
 
@@ -64,7 +63,7 @@ function useCommand(kit, options) {
 
 		console.log('.git folder removed! Working on bootstrapping the project...this could take a grip.'.green);
 		// Run ./bin/bootstrap.
-		var bootstrap = spawn('./bin/bootstrap');
+		let bootstrap = spawn('./bin/bootstrap');
 		bootstrap.stdout.on('data', function dataReceived(data) {
 			console.log(data.toString('utf-8', 0, data.length).gray);
 		});

@@ -33,7 +33,6 @@
   ],
 
   "dependencies": {
-    "bluebird": "^2.9.24",
     "colors": "^1.0.3",
     "commander": "^2.7.1",
     "remove": "^0.1.5"
