@@ -1,6 +1,6 @@
 {
   "name": "starter-kit",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "A quick command-line utility for NodeJS that helps quickly spin up new projects.",
   "main": "index.js",
   "scripts": {
