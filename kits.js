@@ -6,5 +6,6 @@ module.exports = {
 	'email-starter': 'git@github.com:sq1agency/email-starter.git',
 	'express-jwt-starter': 'git@github.com:mikemclaren/express-jwt-starter.git',
 	'express-starter': 'git@github.com:mikemclaren/express-starter.git',
-	'koa-v2-starter': 'git@github.com:mikemclaren/koa-v2-starter.git'
+	'koa-v2-starter': 'git@github.com:mikemclaren/koa-v2-starter.git',
+	'koa-graphql-starter': 'git@github.com:mikemclaren/koa-graphql-starter.git'
 };

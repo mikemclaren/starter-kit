@@ -28,6 +28,7 @@ what development process is needed.
 - [email-starter](https://github.com/sq1agency/email-starter.git)
 - [express-starter](https://github.com/mikemclaren/express-starter)
 - [koa-v2-starter](https://github.com/mikemclaren/koa-v2-starter)
+- [koa-graphql-starter](https://github.com/mikemclaren/koa-graphql-starter)
 
 ## Additional Libraries
 You can install any library available on [Bower](http://bower.io) or
