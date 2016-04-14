@@ -27,6 +27,7 @@ what development process is needed.
 - [express-jwt-starter](https://github.com/mikemclaren/express-jwt-starter.git)
 - [email-starter](https://github.com/sq1agency/email-starter.git)
 - [express-starter](https://github.com/mikemclaren/express-starter)
+- [koa-v2-starter](https://github.com/mikemclaren/koa-v2-starter)
 
 ## Additional Libraries
 You can install any library available on [Bower](http://bower.io) or
@@ -54,4 +55,4 @@ anything in a starter kit.
 2. __./bin/bootstrap is the only way to setup.__ The starterkit cli calls
 `./bin/bootstrap` when installing starter kits, so chances are the setup will
 just fail. The idea is that a user should not have to run a single line of code
-to get there project _ready_ to go after using the starter kit.
+to get their project _ready_ to go after using the starter kit.
